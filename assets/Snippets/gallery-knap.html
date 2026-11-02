@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+     #slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem auto;
+}
+
+#slide-billede {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+}
+
+#slider button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+
+<div id="slider">
+    <button onclick="forrige()">⬅</button>
+    <img id="slide-billede" src="https://picsum.photos/600/400?random=1" alt="slide">
+    <button onclick="næste()">➡</button>
+</div>
+
+<script>
+    const billeder = [
+        "https://picsum.photos/600/400?random=1",
+        "https://picsum.photos/600/400?random=2",
+        "https://picsum.photos/600/400?random=3",
+        "https://picsum.photos/600/400?random=4"
+    ]
+
+    let index = 0
+
+    function næste() {
+        index++
+        if (index >= billeder.length) {
+            index = 0
+        }
+        document.getElementById('slide-billede').src = billeder[index]
+    }
+
+    function forrige() {
+        index--
+        if (index < 0) {
+            index = billeder.length - 1
+        }
+        document.getElementById('slide-billede').src = billeder[index]
+    }
+</script>
+
+</body>
+</html>

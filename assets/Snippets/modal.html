@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .modal-boks {
+            background: white;
+            padding: 2rem;
+            width: 300px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="openModal()">Åbn</button>
+
+<div class="modal" id="modal">
+    <div class="modal-boks">
+        <h2>Kontakt os</h2>
+        <label>Navn</label>
+        <input type="text" id="navn"><br><br>
+        <label>Email</label>
+        <input type="email" id="email"><br><br>
+        <label>Telefon</label>
+        <input type="number" id="tlf"><br><br>
+        <label>Alder</label>
+        <input type="number" id="alder"><br><br>
+        <button onclick="send()">Send</button>
+        <button onclick="closeModal()">Luk</button>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('modal').style.display = 'block'
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none'
+    }
+
+    function send() {
+        const navn = document.getElementById('navn').value
+        const email = document.getElementById('email').value
+        const tlf = document.getElementById('tlf').value
+        const alder = document.getElementById('alder').value
+
+        // Regex der tjekker om email har tekst@tekst.tekst formatet
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+        if (navn === '' || email === '' || tlf === '' || alder === '') {
+            alert('Udfyld alle felter!')
+        } else if (!emailRegex.test(email)) {
+            alert('Ugyldig email!')
+        } else if (alder < 15) {
+            alert('Du skal være mindst 15 år!')
+        } else {
+            alert('Velkommen ind')
+            closeModal()
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Menu</title>
+    <style>
+        nav {
+            background-color: #333;
+            padding: 1rem 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: #aaa;
+        }
+
+        .burger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .burger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <button class="burger" id="burger">☰</button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#">Hjem</a></li>
+        <li><a href="#">Om</a></li>
+        <li><a href="#">Kontakt</a></li>
+    </ul>
+</nav>
+
+<script>
+    // const er constant
+    // getElementById finder og dens id er burger
+    const burger = document.getElementById('burger')
+    // og det her bare er bare det samme men et andet id
+    const navLinks = document.getElementById('nav-links')
+
+    // du adder en funktion når du klikker knappen så at den åbner
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('open')
+    })
+</script>
+
+</body>
+</html>
+

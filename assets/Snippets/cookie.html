@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Consent</title>
+    <style>
+        .cookieConsentWindow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        #cookieWindowContent {
+            width: 50%;
+            max-width: 400px;
+            background-color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<section id="cookieConsentWindow" class="cookieConsentWindow">
+    <section id="cookieWindowContent">
+        <h2>Cookies</h2>
+        <p>Vi bruger cookies for at give dig den bedste oplevelse på vores side.</p>
+        <button id="allCookieButton">Alle cookies</button>
+        <button id="funcCookieButton">Kun nødvendige</button>
+        <button id="noCookieButton">Ingen cookies</button>
+    </section>
+</section>
+
+<script>
+    const cookieWindow = document.getElementById("cookieConsentWindow")
+
+    const allButton = document.getElementById("allCookieButton")
+    const funcButton = document.getElementById("funcCookieButton")
+    const noButton = document.getElementById("noCookieButton")
+
+    allButton.addEventListener("click", () => {
+        closeCookieConsent()
+    })
+
+    funcButton.addEventListener("click", () => {
+        closeCookieConsent()
+    })
+
+    noButton.addEventListener("click", () => {
+        closeCookieConsent()
+    })
+
+    function closeCookieConsent() {
+        cookieWindow.classList.add("hidden")
+    }
+</script>
+
+</body>
+</html>

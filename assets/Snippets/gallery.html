@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        #galleri {
+            display: flex;
+            gap: 1px;
+            width: 900px;
+            height: 600px;
+            background-color: #3D3838;
+        }
+
+        #stort-billede {
+            width: 600px;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        #stort-billede:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        #små-billeder {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            width: 300px;
+            height: 300px;
+        }
+
+        #små-billeder img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        #små-billeder img:hover {
+            opacity: 0.7;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<section id="galleri">
+    <img id="stort-billede" src="https://picsum.photos/600/600?random=1" alt="">
+    <div id="små-billeder">
+        <img src="https://picsum.photos/300?random=2" alt="">
+        <img src="https://picsum.photos/300?random=3" alt="">
+        <img src="https://picsum.photos/300?random=4" alt="">
+        <img src="https://picsum.photos/300?random=5" alt="">
+    </div>
+</section>
+
+<script>
+    const storBillede = document.getElementById("stort-billede")
+    const småBilleder = document.querySelectorAll("#små-billeder img")
+
+    småBilleder.forEach(function(billede) {
+        billede.addEventListener("click", function() {
+            const temp = storBillede.src;
+            storBillede.src = billede.src;
+            billede.src = temp;
+        })
+    })
+</script>
+
+</body>
+</html>
